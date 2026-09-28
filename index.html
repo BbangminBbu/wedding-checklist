@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>우리의 결혼준비 체크리스트</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="onboarding" id="onboardingScreen">
+  <div class="onboarding-card">
+    <div class="onboarding-icon">💍</div>
+    <h1 class="onboarding-title">결혼식 날짜를<br>알려주세요</h1>
+    <p class="onboarding-sub">두 분의 특별한 날을 함께 준비할게요</p>
+    <input type="date" id="onboardingDateInput" class="onboarding-date-input">
+    <div class="onboarding-error" id="onboardingError" role="alert"></div>
+    <button id="startBtn" class="onboarding-start-btn" type="button">시작하기</button>
+    <p class="onboarding-hint">날짜는 나중에 메인 화면에서 언제든 수정할 수 있어요</p>
+  </div>
+</div>
+
+<div class="wrap hidden" id="mainWrap">
+  <button class="back-to-start-btn" id="backToOnboardingBtn">‹ 처음 화면으로</button>
+  <header>
+    <h1>💍 우리의 결혼준비</h1>
+    <p>체크하며 하나씩 완성해가요</p>
+  </header>
+
+  <div class="dday-card">
+    <div class="dday-left">
+      <div class="dday-num" id="ddayNum">D-day</div>
+      <div class="dday-label" id="ddayLabel">예식 날짜를 설정해 주세요</div>
+    </div>
+    <input type="date" id="weddingDateInput" class="dday-date-input">
+  </div>
+
+  <div class="progress-card">
+    <div class="progress-pct" id="overallPct">0%</div>
+    <div class="progress-sub" id="overallSub">0 / 0 완료</div>
+    <div class="bar-track"><div class="bar-fill" id="overallBar" style="width:0%"></div></div>
+  </div>
+
+  <div class="cost-card">
+    <div class="cost-title">💰 비용 정리</div>
+    <div class="cost-grid">
+      <div class="cost-stat"><div class="n" id="costTotal">₩0</div><div class="l">예상비용</div></div>
+      <div class="cost-stat"><div class="n" id="depositTotal">₩0</div><div class="l">예약금</div></div>
+      <div class="cost-stat balance"><div class="n" id="balanceTotal">₩0</div><div class="l">잔금</div></div>
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <button class="vendor-open-btn" id="openVendorModal">💌 정한 업체들 한눈에 보기</button>
+  </div>
+
+  <div class="section-title">✅ 준비 항목 <span class="hint">⠿ 눌러서 순서 변경 가능</span></div>
+  <div id="categories"></div>
+
+  <footer>이 브라우저에만 저장돼요 · 다른 기기와는 공유되지 않아요</footer>
+</div>
+
+<div class="modal-overlay hidden" id="vendorModalOverlay">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2>💌 정한 업체들 한눈에 보기</h2>
+      <button class="modal-close" id="closeVendorModal" aria-label="닫기">✕</button>
+    </div>
+    <div class="vendor-summary" id="vendorSummary"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
